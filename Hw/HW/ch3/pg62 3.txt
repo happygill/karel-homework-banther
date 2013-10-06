@@ -1,0 +1,34 @@
+#include"New_Bot.kpp"
+class Sweeper:New_Bot
+{ void movePick();
+  void rowPick5();
+  void row2Pick5();
+  void row4Pick5(); };
+void Sweeper :: movePick()
+{ move();
+  pickBeeper(); }
+void Sweeper :: rowPick5()
+{ movePick();
+  movePick();
+  movePick();
+  movePick();
+  movePick(); }
+void Sweeper :: row2Pick5()
+{ rowPick5();
+  move();
+  turnLeft();
+  move();
+  turnLeft();
+  rowPick5();
+  move();
+  turnRight();
+  move();
+  turnRight(); }
+void Sweeper :: row4Pick5()
+{ row2Pick5();
+  row2Pick5(); }
+task 
+{ Sweeper clean(2,2,East,0);
+  clean.row4Pick5();
+  clean.row2Pick5(); 
+  clean.turnOff();}

@@ -1,0 +1,19 @@
+#include"New_Bot.kpp"
+class Box:New_Bot
+{ void movePlace();
+  void put3Row(); };
+void Box::movePlace()
+{ move();
+  putBeeper(); }
+void Box::put3Row()
+{ movePlace();
+  movePlace();
+  movePlace();
+  turnLeft(); }
+task
+{ Box lex(3,3,East,12);
+  lex.put3Row();
+  lex.put3Row();
+  lex.put3Row();
+  lex.put3Row();
+}

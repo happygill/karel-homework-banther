@@ -1,0 +1,61 @@
+// must face east on corner to run right 
+#include"Beeper.kpp"
+class Harvester: Beeper
+{ void cornerHarvest();
+  void beeperCheck();
+  void move(); };
+void Harvester::cornerHarvest()
+{    
+       while (nextToABeeper())
+               { while (nextToABeeper())
+                        {  pickBeeper(); }
+                             
+                   move();
+                  loop (5) {beeperCheck();}
+                  
+                
+               }
+       
+}
+ void Harvester::beeperCheck()
+{ 
+  loop (16)
+     {if (noBeeper())
+          { 
+              move(); 
+          }
+     }if (noBeeper())
+          { if (facingEast())
+               {
+                 turnLeft();
+                 move();
+                 turnLeft();
+                  loop (16)
+           {if (noBeeper())
+                { 
+                       move();   
+
+                        }
+            }
+              loop (9)
+     {if (noBeeper())
+          { move(); }
+     }
+                 
+      } if (frontIsBlocked())
+                       { turnRight();
+                        move();
+                        turnRight(); } 
+           }
+        
+  
+}
+void Harvester::move()
+{ if (frontIsClear())
+      { Beeper::move(); }
+} 
+task
+{ Harvester lex(1,1,East,0);
+  lex.cornerHarvest();
+  lex.turnOff();
+}                     

@@ -1,0 +1,85 @@
+#include"New_Bot.kpp"
+class Alien:New_Bot
+{ void stick();
+  void makeL();
+  void makeE();
+  void makeH();
+  void makeO(); };
+void Alien::stick()
+{ move();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); 
+  turn();
+  move4();
+  turnLeft();
+ }
+void Alien::makeL()
+{ stick();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); }
+void Alien::makeH()
+{ stick();
+  move2();
+  stick();
+  turnLeft();
+  move2();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); }
+void Alien::makeO()
+{ move();
+  makeL();
+  move2();
+  turnLeft();
+  move4();
+  turnLeft();
+  makeL(); }
+void Alien::makeE()
+{ makeL();
+  turnLeft();
+  move2();
+  putBeeper();
+  move2();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  turnLeft();
+  move2();
+  putBeeper(); }
+task
+{ Alien lex(3, 1, East, 99);
+lex.makeH();
+lex.turn();
+lex.move3();
+lex.turnRight();
+lex.move2();
+lex.turnLeft();
+lex.makeE();
+lex.move2();
+lex.turnLeft();
+lex.move2();
+lex.makeL();
+lex.move();
+lex.makeL();
+lex.makeO();
+lex.move8();
+lex.move8();
+lex.move3();
+lex.turnLeft();
+lex.move4();
+lex.turnLeft();
+lex.turnOff();
+}

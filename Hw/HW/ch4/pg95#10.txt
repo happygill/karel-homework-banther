@@ -1,0 +1,79 @@
+#include "boolbot.kpp"
+class beeperrace:Bool
+{ 
+	void checkBeeper();
+  	void race();
+        void move4();
+        void race7();
+};
+void beeperrace::race()
+{	
+	if (noBeeper())
+		{
+			move();
+		}
+	else
+		{
+			
+                        turnLeft();
+                        checkBeeper();
+			
+ 			
+		}
+}
+void beeperrace::checkBeeper()
+{
+	loop (3)
+		{
+			if( nextToABeeper())
+				{
+					pickBeeper();
+					move();
+	 			}	
+		}
+			
+        		if(noBeeper())
+				{
+					turn();
+        				move4();
+					turnLeft();
+                                        move();
+				}
+			       
+}
+void beeperrace::move4()
+{
+	if (frontIsClear())
+		{ 
+			move();
+		} 
+	if (frontIsClear())
+		{ 
+			move();
+		} 
+	if (frontIsClear())
+		{ 
+			move();
+		} 
+	if (frontIsClear())
+		{ 
+			move();
+		} 
+}
+void beeperrace::race7()
+{   
+	loop(7)
+		{
+			race();
+		}	
+}
+task
+{ 
+	beeperrace lex(1,1,East,0);
+  	lex.race7();
+  	lex.turnOff();
+}
+			
+
+ 
+  

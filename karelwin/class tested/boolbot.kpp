@@ -1,0 +1,21 @@
+#include"New_Bot.kpp"
+class Bool:New_Bot
+{ Boolean frontIsBlocked();
+  Boolean rightIsClear();
+  Boolean rightIsBlocked();
+};
+
+Boolean Bool::frontIsBlocked()
+{ return ! frontIsClear(); }
+
+Boolean Bool::rightIsClear()
+{  turnRight();
+   if (frontIsClear() )
+      { turnLeft();
+        return true;
+      }
+      turnLeft();
+      return false;
+}
+Boolean Bool::rightIsBlocked()
+{ return ! rightIsClear(); }

@@ -1,0 +1,33 @@
+#include"boolbot.kpp"
+class climber:Bool
+{ void climb();
+  void findwall();
+  void ascend();
+};
+void climber::climb()
+{ 	
+	while(noBeeper())
+	{
+		findwall();
+  		turnLeft();
+  		ascend();
+ 	 	turnRight();
+		move();
+		ascend();
+		turnRight();
+  		findwall();
+  		turnLeft();
+ 	}
+}
+void climber::findwall()
+{ while (frontIsClear())
+        { move(); } 
+}
+void climber::ascend()
+{ while (rightIsBlocked())
+        { move(); }
+}
+task
+{ climber lex(1,1,East,0);
+  lex.climb();
+}

@@ -1,0 +1,41 @@
+#include"boolbot.kpp"
+class mazer:Bool
+{
+	void touchRight();
+	void maze();
+};
+void mazer::touchRight()
+{
+	if(rightIsBlocked())
+	{
+		if(frontIsClear())
+		{
+			move();
+		}
+		else
+		{
+			turnLeft();
+		}
+	}
+	else
+	{
+		turnRight();
+		if(frontIsClear())
+		{
+			move();
+		}
+	}
+}
+void mazer::maze()
+{
+	while(noBeeper())
+	{
+		touchRight();
+	}
+}
+task
+{
+	mazer lex(1,1,East,0);
+	lex.maze();
+	lex.turnOff();
+}

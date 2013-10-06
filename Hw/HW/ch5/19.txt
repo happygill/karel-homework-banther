@@ -1,0 +1,83 @@
+#include"boolbot.kpp"
+class pirate:Bool
+{
+	void line();
+	void direction();
+	void find();
+	void compass();
+};
+void pirate::compass()
+{
+	if(facingWest())
+	{
+		turnRight();
+	}
+	if(facingSouth())
+	{
+		loop (3)
+		{
+			turn();
+		}
+	}
+	if(facingEast())
+	{
+		turnLeft();
+	}
+}
+void pirate::find()
+{
+	pickBeeper();
+	if(noBeeper())
+	{
+		compass();
+	}
+	else
+	{
+		pickBeeper();
+		if(noBeeper())
+		{
+			compass();
+			turnLeft();
+		}
+		else
+		{
+			pickBeeper();
+			if(noBeeper())
+			{
+				compass();
+				turn();
+			}
+			else
+			{
+				pickBeeper();
+				if(noBeeper())
+				{
+					compass();
+					turnRight();
+				}
+
+			}
+		}
+	}
+}
+void pirate::line()
+{
+	while(noBeeper())
+	{
+		move();
+	}
+}
+void pirate::direction()
+{
+	while(noBeeper())
+	{
+		line();
+		find();
+	}
+	turnOff();
+}
+task
+{
+	pirate lex(2,2,North,0);
+	lex.direction();
+}

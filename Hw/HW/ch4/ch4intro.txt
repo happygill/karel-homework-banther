@@ -1,0 +1,33 @@
+#include"New_Bot.kpp"
+class Maze:New_Bot
+{
+ void faceWest();
+ void findWall();
+};
+void Maze::faceWest()
+{ if (facingEast())
+    { turn(); }
+  if (facingNorth())
+    { turnLeft(); }
+  if (facingSouth())
+    { turnRight(); }
+}
+void Maze::findWall()
+{ if (frontIsClear())
+     { move(); }
+}
+task
+{ Maze lex(3,6,South,0);
+  lex.faceWest();
+  lex.findWall();
+  lex.findWall();
+  lex.findWall();
+  lex.findWall();
+  lex.findWall();
+  lex.turnRight();
+  lex.move3();
+  lex.turnLeft();
+  lex.move();
+  lex.turn();
+  lex.turnOff();
+}

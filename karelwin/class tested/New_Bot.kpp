@@ -1,0 +1,95 @@
+class New_Bot:Robot
+{ void turnRight();
+  void move2();
+  void move3();
+  void move4();
+  void move5();
+  void move6();
+  void move7();
+  void move8();
+  void turn();
+  void back();
+  void back2();
+  void back3();
+  void stepUp(); 
+  void stepUp2();
+  void stepUp3();
+  void stepDown();
+  void stepDown2();
+  void stepDown3();
+};
+void New_Bot :: turnRight()
+{ turnLeft();
+  turnLeft();
+  turnLeft(); }
+void New_Bot :: move2()
+{ move();
+  move(); }
+void New_Bot :: move3()
+{ move2();
+  move(); }
+
+void New_Bot :: move4()
+{ move3();
+  move(); }
+void New_Bot :: move5()
+{ move4();
+  move(); }
+void New_Bot :: move6()
+{ move5();
+  move(); }
+void New_Bot :: move7()
+{ move6();
+  move(); }
+void New_Bot :: move8()
+{ move7();
+  move(); }
+void New_Bot :: turn()
+{ turnLeft();
+  turnLeft(); }
+void New_Bot :: back()
+{ turn();
+  move();
+  turn(); }
+void New_Bot :: back2()
+{ turn();
+  move2();
+  turn(); }
+void New_Bot :: back3()
+{ turn();
+  move3();
+  turn();
+}
+void New_Bot :: stepUp()
+{ if (  facingEast())
+ {move();
+  turnLeft();
+  move();
+  turnRight();} if ( facingWest())
+ {move();
+  turnRight();
+  move();
+  turnLeft();}
+}
+void New_Bot :: stepUp2()
+{ stepUp();
+  stepUp(); }
+void New_Bot :: stepUp3()
+{ stepUp2();
+  stepUp(); }
+void New_Bot :: stepDown()
+{ if (  facingWest())
+ {move();
+  turnLeft();
+  move();
+  turnRight();} if ( facingEast())
+ {move();
+  turnRight();
+  move();
+  turnLeft();}}
+void New_Bot :: stepDown2()
+{ stepDown();
+  stepDown(); }
+void New_Bot :: stepDown3()
+{ stepDown2();
+  stepDown(); }

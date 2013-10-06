@@ -1,0 +1,54 @@
+#include"New_Bot.kpp"
+class Bool:New_Bot
+{ Boolean frontIsBlocked();
+  Boolean rightIsClear();
+  Boolean rightIsBlocked();
+  Boolean noBeeper();
+  Boolean backIsClear();
+  Boolean backIsBlocked();
+  Boolean leftIsClear();
+  Boolean leftIsBlocked();
+};
+
+Boolean Bool::frontIsBlocked()
+{ return ! frontIsClear(); }
+
+Boolean Bool::rightIsClear()
+{  turnRight();
+   	if (frontIsClear() )
+      	{ turnLeft();
+        	return true;
+      	}
+      	turnLeft();
+      	return false;
+}
+Boolean Bool::rightIsBlocked()
+	{ return ! rightIsClear(); }
+Boolean Bool::noBeeper()
+	{ return ! nextToABeeper(); }
+
+Boolean Bool::backIsClear()
+{  turn();
+   if (frontIsClear() )
+      { turn();
+        return true;
+      }
+      turn();
+      return false;
+}
+Boolean Bool::backIsBlocked()
+	{   return !backIsClear(); }
+Boolean Bool::leftIsClear()
+{       turnLeft();
+   	if (frontIsClear() )
+      	{ turnRight();
+        	return true;
+      	}
+      	turnRight();
+      	return false;
+}
+Boolean Bool::leftIsBlocked()
+	{ return ! leftIsClear(); }
+
+
+

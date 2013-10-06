@@ -1,0 +1,320 @@
+#include"Beeper.kpp"
+class Writer: Beeper
+{ void stick();
+  void line();
+  void movePut();
+  void N1();
+  void N2();
+  void N0();
+  void semiC();
+  void N3();
+  void N4(); 
+  void N5();
+  void N6();
+  void N7();
+  void N8();
+  void N9();
+  void stick1();
+  void makeL();
+  void makeE();
+  void makeH();
+  void makeO(); };
+void Writer::stick1()
+{ move();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); 
+  turn();
+  move4();
+  turnLeft();
+ }
+void Writer::makeL()
+{ stick1();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  back3(); }
+void Writer::makeH()
+{ stick1();
+  move2();
+  stick1();
+  turnLeft();
+  move2();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move2();
+  turnLeft();
+  back2();
+   }
+void Writer::makeO()
+{ move();
+  makeL();
+  move2();
+  turnLeft();
+  move4();
+  turnLeft();
+  makeL(); 
+  move();
+  turnLeft();
+  move4();
+  turnLeft();
+  back();}
+void Writer::makeE()
+{ makeL();
+  turnLeft();
+  move2();
+  putBeeper();
+  move2();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  turnLeft();
+  move2();
+  putBeeper(); 
+  move2();
+  turnLeft();
+  back2();}
+
+void Writer::stick()
+{ movePut();
+  turnLeft();
+  movePut();
+  movePut();
+  movePut();
+  movePut(); }
+void Writer::movePut()
+{ move();
+  putBeeper(); }
+void Writer::line()
+{ movePut();
+  movePut();
+  movePut();
+  movePut(); }
+void Writer::N1()
+{ move3();
+  stick();
+  turn();
+  move4();
+  turnRight();
+  move4();
+  turn(); }
+void Writer::N0()
+{ stick();
+  turnRight();
+  movePut();
+  movePut();
+  move2();
+  turn();
+  stick();
+  turnRight();
+  movePut();
+  movePut();
+  move2();
+  turn(); }
+void Writer::N2()
+{ line();
+  move();
+  turnLeft();
+  move2();
+  turnRight();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turnRight();
+  movePut();
+  move2();
+  turnRight();
+  move2();
+  movePut();
+  move();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::semiC()
+{ move6();
+  turnLeft();
+  movePut();
+  move();
+  movePut();
+  turn();
+  move3();
+  turnLeft(); }
+void Writer::N3()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turnRight();
+  movePut();
+  move();
+  movePut();
+  turnRight();
+  move4();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::N4()
+{ move3();
+  stick();
+  turnLeft();
+  move2();
+  movePut();
+  turnLeft();
+  movePut();
+  movePut();
+  turnLeft(); 
+  movePut();
+  movePut();
+  turnRight();
+  move2();
+  turnRight();
+  move3();
+  turn(); }
+void Writer::N5()
+{ line();
+  turnLeft();
+  movePut();
+  move();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  move3();
+  turnRight();
+  move();
+  turn(); }
+void Writer::N6()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  turnLeft();
+  move3();
+  turnRight();
+  move();
+  movePut();
+  turnRight();
+  move2();
+  movePut();
+  move();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::N7()
+{ move3();
+  stick();
+  turnLeft();
+  movePut();
+  movePut();
+  movePut();
+  turnLeft();
+  move4();
+  turnRight();
+  move();
+  turn(); }
+void Writer::N8()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  turnLeft();
+  move2();
+  movePut();
+  turnRight();
+  move();
+  movePut();
+  turnRight();
+  move2();
+  movePut();
+  move();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::N9()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  turnLeft();
+  move2();
+  movePut();
+  turnRight();
+  move();
+  movePut();
+  turnRight();
+  move4();
+  turnLeft();
+  move();
+  turnLeft(); }
+
+
+

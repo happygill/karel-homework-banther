@@ -1,0 +1,53 @@
+#include"boolbot.kpp"
+class follow:Bool
+{
+	void follow();
+	void row();
+	void check();
+};
+void follow::follow()
+{
+	while(noBeeper())
+	{
+		row();
+		check();
+		row();
+
+	}
+}
+void follow::row()
+{
+	move();
+	while(nextToABeeper())
+	{
+		pickBeeper();
+		move();
+	}
+	back();
+	
+}
+void follow::check()
+{	if(noBeeper())
+	{
+		turnLeft();
+		move();
+		if(nextToABeeper())
+		{
+			pickBeeper();
+			row();
+		}
+		else
+		{
+			back();
+			turn();
+			move();
+		}
+	}
+	
+}
+task
+{
+	follow lex(1,1,East,0);
+	lex.follow();
+}
+		

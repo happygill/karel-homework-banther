@@ -1,0 +1,1158 @@
+class New_Bot:Robot
+{ void turnRight();
+  void move2();
+  void move3();
+  void move4();
+  void move5();
+  void move6();
+  void move7();
+  void move8();
+  void turn();
+  void back();
+  void back2();
+  void back3();
+  void stepUp(); 
+  void stepUp2();
+  void stepUp3();
+  void stepDown();
+  void stepDown2();
+  void stepDown3();
+};
+void New_Bot :: turnRight()
+{ turnLeft();
+  turnLeft();
+  turnLeft(); }
+void New_Bot :: move2()
+{ move();
+  move(); }
+void New_Bot :: move3()
+{ move2();
+  move(); }
+
+void New_Bot :: move4()
+{ move3();
+  move(); }
+void New_Bot :: move5()
+{ move4();
+  move(); }
+void New_Bot :: move6()
+{ move5();
+  move(); }
+void New_Bot :: move7()
+{ move6();
+  move(); }
+void New_Bot :: move8()
+{ move7();
+  move(); }
+void New_Bot :: turn()
+{ turnLeft();
+  turnLeft(); }
+void New_Bot :: back()
+{ turn();
+  move();
+  turn(); }
+void New_Bot :: back2()
+{ turn();
+  move2();
+  turn(); }
+void New_Bot :: back3()
+{ turn();
+  move3();
+  turn();
+}
+void New_Bot :: stepUp()
+{ if (  facingEast())
+ {move();
+  turnLeft();
+  move();
+  turnRight();} if ( facingWest())
+ {move();
+  turnRight();
+  move();
+  turnLeft();}
+}
+void New_Bot :: stepUp2()
+{ stepUp();
+  stepUp(); }
+void New_Bot :: stepUp3()
+{ stepUp2();
+  stepUp(); }
+void New_Bot :: stepDown()
+{ if (  facingWest())
+ {move();
+  turnLeft();
+  move();
+  turnRight();} if ( facingEast())
+ {move();
+  turnRight();
+  move();
+  turnLeft();}}
+void New_Bot :: stepDown2()
+{ stepDown();
+  stepDown(); }
+void New_Bot :: stepDown3()
+{ stepDown2();
+  stepDown(); }
+
+class Bool:New_Bot
+{ Boolean frontIsBlocked();
+  Boolean rightIsClear();
+  Boolean rightIsBlocked();
+  Boolean noBeeper();
+  Boolean backIsClear();
+  Boolean backIsBlocked();
+  Boolean leftIsClear();
+  Boolean leftIsBlocked();
+};
+
+Boolean Bool::frontIsBlocked()
+{ return ! frontIsClear(); }
+
+Boolean Bool::rightIsClear()
+{  turnRight();
+   	if (frontIsClear() )
+      	{ turnLeft();
+        	return true;
+      	}
+      	turnLeft();
+      	return false;
+}
+Boolean Bool::rightIsBlocked()
+	{ return ! rightIsClear(); }
+Boolean Bool::noBeeper()
+	{ return ! nextToABeeper(); }
+
+Boolean Bool::backIsClear()
+{  turn();
+   if (frontIsClear() )
+      { turn();
+        return true;
+      }
+      turn();
+      return false;
+}
+Boolean Bool::backIsBlocked()
+	{   return !backIsClear(); }
+Boolean Bool::leftIsClear()
+{       turnLeft();
+   	if (frontIsClear() )
+      	{ turnRight();
+        	return true;
+      	}
+      	turnRight();
+      	return false;
+}
+Boolean Bool::leftIsBlocked()
+	{ return ! leftIsClear(); }
+
+
+
+
+class Beeper: Bool
+{ void diagPickUp();
+  void diagPickDown();
+  void movePick(); 
+  void diagPutUp();
+  void diagPutDown();
+  void movePut();
+  void pickBeeper();
+  void putBeeper();
+  void put2Beeper();
+  void put4Beeper();
+  void put8Beeper();
+  void put16Beeper();
+  void pick2Beeper();
+  void pick4Beeper();
+  void pick8Beeper();
+  void pick16Beeper();
+  void clear();
+
+   };
+void Beeper::clear()
+{ while (frontIsClear())
+      {     while (nextToABeeper())
+           { pickBeeper(); } 
+           move();
+      }
+	while (nextToABeeper())
+           { pickBeeper(); }     
+}
+void Beeper::putBeeper()
+{  if (anyBeepersInBeeperBag())
+   { New_Bot::putBeeper(); }
+}
+void Beeper::pickBeeper()
+{  if (nextToABeeper())
+   { New_Bot::pickBeeper(); }
+}
+void Beeper::diagPickUp()
+{ stepUp();
+  pickBeeper();
+}
+void Beeper::diagPickDown()
+{ stepDown();
+  pickBeeper();
+}
+void Beeper::movePick()
+{ move();
+  pickBeeper(); }
+void Beeper::diagPutUp()
+{ stepUp();
+  putBeeper();
+}
+void Beeper::diagPutDown()
+{ stepDown();
+  putBeeper();
+}
+void Beeper::movePut()
+{ move();
+  putBeeper(); }
+
+void Beeper::put2Beeper()
+{ putBeeper();
+  putBeeper(); }
+void Beeper::put4Beeper()
+{ put2Beeper();
+  put2Beeper(); }
+void Beeper::put8Beeper()
+{ put4Beeper();
+  put4Beeper(); }
+void Beeper::put16Beeper()
+{ put8Beeper();
+  put8Beeper(); }
+void Beeper::pick8Beeper()
+{ pick4Beeper();
+  pick4Beeper(); }
+void Beeper::pick4Beeper()
+{ pick2Beeper();
+  pick2Beeper(); }
+void Beeper::pick2Beeper()
+{ pickBeeper();
+  pickBeeper(); }
+void Beeper::pick16Beeper()
+{ pick8Beeper();
+  pick8Beeper(); }
+
+
+class Writer: Beeper
+{ void stick();
+  void line();
+  void movePut();
+  void N1();
+  void N2();  void N0();
+  void semiC();
+  void N3();
+  void N4(); 
+  void N5();
+  void N6();
+  void N7();
+  void N8();
+  void N9();
+  void stick1();
+  void makeL();
+  void makeE();
+  void makeH();
+  void makeO(); };
+void Writer::stick1()
+{ move();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); 
+  turn();
+  move4();
+  turnLeft();
+ }
+void Writer::makeL()
+{ stick1();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  back3(); }
+void Writer::makeH()
+{ stick1();
+  move2();
+  stick1();
+  turnLeft();
+  move2();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move2();
+  turnLeft();
+  back2();
+   }
+void Writer::makeO()
+{ move();
+  makeL();
+  move2();
+  turnLeft();
+  move4();
+  turnLeft();
+  makeL(); 
+  move();
+  turnLeft();
+  move4();
+  turnLeft();
+  back();}
+void Writer::makeE()
+{ makeL();
+  turnLeft();
+  move2();
+  putBeeper();
+  move2();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  turnLeft();
+  move2();
+  putBeeper(); 
+  move2();
+  turnLeft();
+  back2();}
+
+void Writer::stick()
+{ movePut();
+  turnLeft();
+  movePut();
+  movePut();
+  movePut();
+  movePut(); }
+void Writer::movePut()
+{ move();
+  putBeeper(); }
+void Writer::line()
+{ movePut();
+  movePut();
+  movePut();
+  movePut(); }
+void Writer::N1()
+{ move3();
+  stick();
+  turn();
+  move4();
+  turnRight();
+  move4();
+  turn(); }
+void Writer::N0()
+{ stick();
+  turnRight();
+  movePut();
+  movePut();
+  move2();
+  turn();
+  stick();
+  turnRight();
+  movePut();
+  movePut();
+  move2();
+  turn(); }
+void Writer::N2()
+{ line();
+  move();
+  turnLeft();
+  move2();
+  turnRight();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turnRight();
+  movePut();
+  move2();
+  turnRight();
+  move2();
+  movePut();
+  move();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::semiC()
+{ move6();
+  turnLeft();
+  movePut();
+  move();
+  movePut();
+  turn();
+  move3();
+  turnLeft(); }
+void Writer::N3()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turnRight();
+  movePut();
+  move();
+  movePut();
+  turnRight();
+  move4();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::N4()
+{ move3();
+  stick();
+  turnLeft();
+  move2();
+  movePut();
+  turnLeft();
+  movePut();
+  movePut();
+  turnLeft(); 
+  movePut();
+  movePut();
+  turnRight();
+  move2();
+  turnRight();
+  move3();
+  turn(); }
+void Writer::N5()
+{ line();
+  turnLeft();
+  movePut();
+  move();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  move3();
+  turnRight();
+  move();
+  turn(); }
+void Writer::N6()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  turnLeft();
+  move3();
+  turnRight();
+  move();
+  movePut();
+  turnRight();
+  move2();
+  movePut();
+  move();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::N7()
+{ move3();
+  stick();
+  turnLeft();
+  movePut();
+  movePut();
+  movePut();
+  turnLeft();
+  move4();
+  turnRight();
+  move();
+  turn(); }
+void Writer::N8()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  turnLeft();
+  move2();
+  movePut();
+  turnRight();
+  move();
+  movePut();
+  turnRight();
+  move2();
+  movePut();
+  move();
+  turnLeft();
+  move();
+  turnLeft(); }
+void Writer::N9()
+{ line();
+  turnLeft();
+  move2();
+  turnRight();
+  move();
+  turn();
+  line();
+  move();
+  turnRight();
+  move2();
+  turnRight();
+  line();
+  turn();
+  move3();
+  turnLeft();
+  movePut();
+  turnLeft();
+  move2();
+  movePut();
+  turnRight();
+  move();
+  movePut();
+  turnRight();
+  move4();
+  turnLeft();
+  move();
+  turnLeft(); }
+
+
+
+
+class artist:Writer
+{	
+	void draw1st();
+	void draw2nd();
+	void draw3rd();
+	void draw4th();
+	void draw();
+};
+void artist::draw1st()
+{
+	move();
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())
+	{
+		move();
+	}
+	if (noBeeper())
+	{ move(); }
+	if(noBeeper())
+	{
+		turnOff();
+	}
+	else
+   {
+	pickBeeper();
+	if (noBeeper())
+	{ 
+		turnLeft();
+		move();
+		turnRight();
+		N1();
+	}
+	else
+	{
+		pickBeeper();
+		if(noBeeper())
+		{
+			turnLeft();
+			move();
+			turnRight();
+			N2();
+		}
+		else
+		{
+			pickBeeper();
+			if (noBeeper())
+			{ 
+				turnLeft();
+				move();
+				turnRight();
+				N3();
+			}
+			else
+			{
+				pickBeeper();
+				if(noBeeper())
+				{
+					turnLeft();
+					move();
+					turnRight();
+					N4();
+				}
+				else
+				{
+					pickBeeper();
+					if (noBeeper())
+					{ 
+						turnLeft();
+						move();
+						turnRight();
+						N5();
+					}
+					else
+					{
+						pickBeeper();
+						if(noBeeper())
+						{
+							turnLeft();
+							move();
+							turnRight();
+							N6();
+						}
+						else
+						{
+							pickBeeper();
+							if (noBeeper())
+							{ 
+								turnLeft();
+								move();
+								turnRight();
+								N7();
+							}
+							else
+							{
+								pickBeeper();
+								if(noBeeper())
+								{
+									turnLeft();
+									move();
+									turnRight();
+									N8();
+								}
+								else
+								{
+									pickBeeper();
+									if (noBeeper())
+									{ 
+										turnLeft();
+										move();
+										turnRight();
+										N9();
+									}
+									else
+									{
+										pickBeeper();
+										if(noBeeper())
+										{
+											turnLeft();
+											move();
+											turnRight();
+											N0();
+										}
+									  	else
+										{
+											pickBeeper();
+											if(noBeeper())
+											{
+												turnLeft();
+												move3();
+												turnRight();
+											 	move();
+												movePut();
+												movePut();
+												movePut();
+												turn();
+												move4();
+												turnLeft();
+												move2();
+												turnLeft();
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	turnRight();
+	move();
+	turnLeft();
+	move();
+   }			
+}
+void artist::draw2nd()
+{
+	
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())	
+	{	
+		move();
+	}
+	
+    else
+{	pickBeeper();
+	if (noBeeper())
+	{ 
+		turnLeft();
+		move();
+		turnRight();
+		move4();
+		N1();
+	}
+	else
+	{
+		pickBeeper();
+		if(noBeeper())
+		{
+			turnLeft();
+			move();
+			turnRight();
+			move4();
+			N2();
+		}
+		else
+		{
+			pickBeeper();
+			if (noBeeper())
+			{ 
+				turnLeft();
+				move();
+				turnRight();
+				move4();
+				N3();
+			}
+			else
+			{
+				pickBeeper();
+				if(noBeeper())
+				{
+					turnLeft();
+					move();
+					turnRight();
+					move4();
+					N4();
+				}
+				else
+				{
+					pickBeeper();
+					if (noBeeper())
+					{ 
+						turnLeft();
+						move();
+						turnRight();
+						move4();
+						N5();
+					}
+					else
+					{
+						pickBeeper();
+						if(noBeeper())
+						{
+							turnLeft();
+							move();
+							turnRight();
+							move4();
+							N6();
+						}
+						else
+						{
+							pickBeeper();
+							if (noBeeper())
+							{ 
+								turnLeft();
+								move();
+								turnRight();
+								move4();
+								N7();
+							}
+							else
+							{
+								pickBeeper();
+								if(noBeeper())
+								{
+									turnLeft();
+									move();
+									turnRight();
+									move4();
+									N8();
+								}
+								else
+								{
+									pickBeeper();
+									if (noBeeper())
+									{ 
+										turnLeft();
+										move();
+										turnRight();
+										move4();
+										N9();
+									}
+									else
+									{
+										pickBeeper();
+										if(noBeeper())
+										{
+											turnLeft();
+											move();
+											turnRight();
+											move4();
+											N0();
+										}
+
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	turnRight();
+	move();
+	turnRight();
+	move3();
+	turn();	
+  }		
+}
+void artist::draw3rd()
+{
+	
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())	
+	{	
+		move();
+	}
+	
+   else
+    {
+	pickBeeper();
+	if (noBeeper())
+	{ 
+		turnLeft();
+		move();
+		turnRight();
+		move8();
+		N1();
+	}
+	else
+	{
+		pickBeeper();
+		if(noBeeper())
+		{
+			turnLeft();
+			move();
+			turnRight();
+			move8();
+			N2();
+		}
+		else
+		{
+			pickBeeper();
+			if (noBeeper())
+			{ 
+				turnLeft();
+				move();
+				turnRight();
+				move8();
+				N3();
+			}
+			else
+			{
+				pickBeeper();
+				if(noBeeper())
+				{
+					turnLeft();
+					move();
+					turnRight();
+					move8();
+					N4();
+				}
+				else
+				{
+					pickBeeper();
+					if (noBeeper())
+					{ 
+						turnLeft();
+						move();
+						turnRight();
+						move8();
+						N5();
+					}
+					else
+					{
+						pickBeeper();
+						if(noBeeper())
+						{
+							turnLeft();
+							move();
+							turnRight();
+							move8();
+							N6();
+						}
+						else
+						{
+							pickBeeper();
+							if (noBeeper())
+							{ 
+								turnLeft();
+								move();
+								turnRight();
+								move8();
+								N7();
+							}
+							else
+							{
+								pickBeeper();
+								if(noBeeper())
+								{
+									turnLeft();
+									move();
+									turnRight();
+									move8();
+									N8();
+								}
+								else
+								{
+									pickBeeper();
+									if (noBeeper())
+									{ 
+										turnLeft();
+										move();
+										turnRight();
+										move8();
+										N9();
+									}
+									else
+									{
+										pickBeeper();
+										if(noBeeper())
+										{
+											turnLeft();
+											move();
+											turnRight();
+											move8();
+											N0();
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	turnRight();
+	move();
+	turnRight();
+	move7();
+	turn();	
+    }		
+}
+void artist::draw4th()
+{
+	
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())	
+	{	
+		move();
+	}
+	if (noBeeper())	
+	{	
+		move();
+	}
+	
+   else
+   {
+	pickBeeper();
+	if (noBeeper())
+	{ 
+		turnLeft();
+		move();
+		turnRight();
+		move8();
+		move4();
+		N1();
+	}
+	else
+	{
+		pickBeeper();
+		if(noBeeper())
+		{
+			turnLeft();
+			move();
+			turnRight();
+			move8();
+			move4();
+			N2();
+		}
+		else
+		{
+			pickBeeper();
+			if (noBeeper())
+			{ 
+				turnLeft();
+				move();
+				turnRight();
+				move8();
+				move4();
+				N3();
+			}
+			else
+			{
+				pickBeeper();
+				if(noBeeper())
+				{
+					turnLeft();
+					move();
+					turnRight();
+					move8();
+					move4();
+					N4();
+				}
+				else
+				{
+					pickBeeper();
+					if (noBeeper())
+					{ 
+						turnLeft();
+						move();
+						turnRight();
+						move8();
+						move4();
+						N5();
+					}
+					else
+					{
+						pickBeeper();
+						if(noBeeper())
+						{
+							turnLeft();
+							move();
+							turnRight();
+							move8();
+							move4();
+							N6();
+						}
+						else
+						{
+							pickBeeper();
+							if (noBeeper())
+							{ 
+								turnLeft();
+								move();
+								turnRight();
+								move8();
+								move4();
+								N7();
+							}
+							else
+							{
+								pickBeeper();
+								if(noBeeper())
+								{
+									turnLeft();
+									move();
+									turnRight();
+									move8();
+									move4();
+									N8();
+								}
+								else
+								{
+									pickBeeper();
+									if (noBeeper())
+									{ 
+										turnLeft();
+										move();
+										turnRight();
+										move8();
+										move4();
+										N9();
+									}
+									else
+									{
+										pickBeeper();
+										if(noBeeper())
+										{
+											turnLeft();
+											move();
+											turnRight();
+											move8();
+											move4();
+											N0();
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	turnRight();
+	move();
+	turnRight();
+	move7();
+	move4();
+	turn();	
+   }		
+}
+void artist::draw()
+{
+	draw1st();
+	draw2nd();
+	draw3rd();
+	draw4th();
+}

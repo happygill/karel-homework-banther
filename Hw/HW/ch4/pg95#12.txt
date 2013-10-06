@@ -1,0 +1,131 @@
+#include"boolbot.kpp"
+class goodCarpenter:Bool
+{ 
+	Boolean isRoom();
+  	void carpet();
+	void carpetMile();
+        Boolean isWall();
+        void placeOneCarpet();
+	void placeCarpet();
+};
+void goodCarpenter::placeCarpet()
+{
+	placeOneCarpet();
+        placeOneCarpet();
+	placeOneCarpet();
+	placeOneCarpet();
+	turnLeft();
+}
+void goodCarpenter::placeOneCarpet()
+{
+	if (frontIsClear())
+		{ 
+			putBeeper();
+			move();
+		}
+} 
+Boolean goodCarpenter::isRoom()
+{
+	if (frontIsBlocked())
+		{
+			if (leftIsBlocked())
+				{
+					if (rightIsBlocked())
+						{
+							return true;
+						}
+  					return false;
+				}
+			return false;
+		}
+	return false;
+}
+Boolean goodCarpenter::isWall()
+{
+	if (leftIsBlocked())
+		{
+			if (rightIsBlocked())
+				{
+					return true;
+				}
+  			 return false;
+		}
+	return false;
+		
+	
+}
+void goodCarpenter::carpet()
+{	
+	move();
+	turnLeft();
+	move();
+	if (isRoom())
+		{
+			turn();
+			placeCarpet();
+		}
+	else
+
+		{
+			if (isWall())
+				{
+					if (frontIsClear())
+						{ 
+							move();
+							if (isRoom())
+								{
+									turn();
+									placeCarpet();
+								}
+							else
+
+								{
+									if (isWall())
+									{
+										if (frontIsClear())
+											{ 
+												move();
+												if (isRoom())
+													{
+														turn();
+														placeCarpet();
+													}
+											}
+									}
+								}
+						}
+				}
+		}
+	if (facingNorth())
+		{
+			turn();
+			while (frontIsClear())
+				{ 
+					move();
+				}
+			turnLeft();			
+		}
+  	
+	
+}	
+void goodCarpenter::carpetMile()
+{
+	carpet();
+	carpet();
+	carpet();
+	carpet();
+	carpet();
+	carpet();
+	carpet();
+	carpet();
+	carpet();
+}
+task
+{
+	goodCarpenter lex(1,1,East,24);
+	lex.carpetMile();
+	lex.turnOff();
+}		
+			
+	
+			

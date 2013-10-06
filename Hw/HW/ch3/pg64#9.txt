@@ -1,0 +1,17 @@
+#include"Writer.kpp"
+task
+{ Writer lex(1,1, East, 99);
+  lex.N0();
+  lex.move5();
+  lex.N2();
+  lex.semiC();
+  lex.move();
+  lex.N3();
+  lex.move5();
+  lex.N2();
+  lex.turnOff();
+}
+  
+
+
+  

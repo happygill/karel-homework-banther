@@ -1,0 +1,84 @@
+#include"BoolBot.kpp"
+class Beeper: Bool
+{ void diagPickUp();
+  void diagPickDown();
+  void movePick(); 
+  void diagPutUp();
+  void diagPutDown();
+  void movePut();
+  void pickBeeper();
+  void putBeeper();
+  void put2Beeper();
+  void put4Beeper();
+  void put8Beeper();
+  void put16Beeper();
+  void pick2Beeper();
+  void pick4Beeper();
+  void pick8Beeper();
+  void pick16Beeper();
+  void clear();
+
+   };
+void Beeper::clear()
+{ loop (8)
+      {     while (nextToABeeper())
+           { pickBeeper(); } 
+           move();
+      }     
+}
+void Beeper::putBeeper()
+{  if (anyBeepersInBeeperBag())
+   { New_Bot::putBeeper(); }
+}
+void Beeper::pickBeeper()
+{  if (nextToABeeper())
+   { New_Bot::pickBeeper(); }
+}
+void Beeper::diagPickUp()
+{ stepUp();
+  pickBeeper();
+}
+void Beeper::diagPickDown()
+{ stepDown();
+  pickBeeper();
+}
+void Beeper::movePick()
+{ move();
+  pickBeeper(); }
+void Beeper::diagPutUp()
+{ stepUp();
+  putBeeper();
+}
+void Beeper::diagPutDown()
+{ stepDown();
+  putBeeper();
+}
+void Beeper::movePut()
+{ move();
+  putBeeper(); }
+
+void Beeper::put2Beeper()
+{ putBeeper();
+  putBeeper(); }
+void Beeper::put4Beeper()
+{ put2Beeper();
+  put2Beeper(); }
+void Beeper::put8Beeper()
+{ put4Beeper();
+  put4Beeper(); }
+void Beeper::put16Beeper()
+{ put8Beeper();
+  put8Beeper(); }
+void Beeper::pick8Beeper()
+{ pick4Beeper();
+  pick4Beeper(); }
+void Beeper::pick4Beeper()
+{ pick2Beeper();
+  pick2Beeper(); }
+void Beeper::pick2Beeper()
+{ pickBeeper();
+  pickBeeper(); }
+void Beeper::pick16Beeper()
+{ pick8Beeper();
+  pick8Beeper(); }
+

@@ -1,0 +1,185 @@
+//(1) check left is blocked 
+boolean checker::leftIsBlocked()
+{
+	turnLeft();
+	if(frontIsClear())
+	{	
+		turnLeft();
+		turnLeft();
+		turnLeft();
+		return false;
+	}
+	turnLeft();
+	turnLeft();
+	turnLeft();
+	return true;
+}
+
+//(2) there is a simpler way if karel is going to move in the if and else just put it out of both
+move();
+if(test())
+	{...}
+else
+	{...}
+//(3) face north with one beeper or south with 2 beeper on floor pick all
+void Prospector::findNextDirection()
+{
+	pickBeeper();
+	//more than one beeper on floor if true
+	if(nextToABeeper())
+	{	pickBeeper();
+		//face south if facing East
+		if(facingEast())
+		{
+			turnLeft();
+			turnLeft();
+			turnLeft();
+		}
+		// face south if facing West
+		if(facingWest())
+		{
+			turnLeft();
+		}
+		//face south if facing North
+		if(facingNorth())
+		{
+			turnLeft();
+			turnLeft();
+		}
+	}			
+	else
+	{					
+		if(facingEast())
+		{
+			turnLeft();
+		}			
+		if(facingWest())
+		{
+			turnLeft();
+			turnLeft();
+			turnLeft();
+		}
+		if(facingsouth())
+		{
+			turnLeft();
+			turnLeft();
+		}
+	}
+}
+//(4) face north with one beeper or south with 2 beeper leave all on floor
+void Prospector::findNextDirection()
+{
+	pickBeeper();
+	//more than one beeper on floor if true
+	if(nextToABeeper())
+	{	putBeeper();
+		//face south if facing East
+		if(facingEast())
+		{
+			turnLeft();
+			turnLeft();
+			turnLeft();
+		}
+		// face south if facing West
+		if(facingWest())
+		{
+			turnLeft();
+		}
+		//face south if facing North
+		if(facingNorth())
+		{
+			turnLeft();
+			turnLeft();
+		}
+	}			
+	else
+	{	
+		putBeeper		
+		if(facingEast())
+		{
+			turnLeft();
+		}			
+		if(facingWest())
+		{
+			turnLeft();
+			turnLeft();
+			turnLeft();
+		}
+		if(facingsouth())
+		{
+			turnLeft();
+			turnLeft();
+		}
+	}
+}
+//(5) if enclosed in room(4walls all sides) turnOff else face sameway
+void walker::turnOffIfSurrounded()
+{
+	if(!frontIsClear())
+	{	
+		turnLeft();
+		if(!frontIsClear())
+		{	
+			turnLeft();
+			if(!frontIsClear())
+			{	
+				turnLeft();
+				if(!frontIsClear())
+				{	
+					turnOff();
+				}
+				else
+				{
+					turnLeft();
+				}
+			}
+			else
+			{
+				turnLeft();
+				turnLeft();
+			}
+		}
+		else
+		{
+			turnLeft();
+	 		turnLeft();
+			turnLeft();
+		}
+
+	}
+}
+	
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

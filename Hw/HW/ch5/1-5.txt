@@ -1,0 +1,85 @@
+//(1) emptyBeeperBag
+void beeper::emptyBeeperBag
+{
+	while(anyBeepersInBeeperBag())
+	{
+		putBeeper();
+	}
+}
+void compas::goToOrgin();
+{
+	if(facingNorth())
+	{
+		turnLeft();
+	}
+	if(facingSouth())
+	{
+		loop (3)
+		{
+			turnLeft();
+		}
+	}
+	if(facingEast())
+	{
+		turnLeft();
+		turnLeft();
+	}
+	while(frontIsClear())
+	{
+		move();
+	}
+	turnLeft();
+	while(frontisClear())
+	{
+		move();
+	}
+	turnLeft();
+}
+//(3) the fragments on both want to move until next to a beeper 
+//then pick the beeper
+while(!nextToABeeper())
+{
+	move();
+}
+pickBeeper();
+//the difference between while and if
+//in the while it will keeper moving until there is a wall
+//in theif it will move once if front is clear
+
+//(4) if odd beepers go west if even beepers go east 
+// pick all beeper in room with no infinite pile
+void checker::clean 
+{
+	pickBeeper();
+	turnLeft();
+	while(nextToABeeper())
+	{
+		pickBeeper();
+		turnLeft();
+		turnLeft();
+	}
+	move();
+	while(nextToABeeper())
+	{
+		pickBeeper();
+	}
+}
+//(5) make a square 4 beeper wide
+{
+	loop (4)
+	{
+		loop (3)
+		{
+			if(!nextToABeeper())
+			{
+				putBeeper();
+			}
+			move();
+		}
+		if(!nextToAbeeper())
+		{
+			putBeeper();
+			turnLeft();	
+		}
+	}
+}

@@ -1,0 +1,45 @@
+class race:ur_Robot
+{ void move5();
+ void move25(); 
+ void move125(); 
+ void move500(); 
+ void move2000(); };
+void race :: move5()
+{ move();
+  move();
+  move();
+  move();
+  move(); }
+void race :: move25()
+{ move5();
+  move5();
+  move5();
+  move5();
+  move5();}
+void race :: move125()
+{ move25();
+  move25();
+  move25();
+  move25();
+  move25(); }
+void race :: move500()
+{ move125();
+  move125();
+  move125();
+  move125();}
+void race :: move2000()
+{ move500();
+  move500();
+  move500();
+  move500(); }
+task
+{ race lex(1, 1, North, 0);
+lex.move2000();
+lex.move2000();
+lex.move2000();
+lex.move2000();
+lex.turnOff(); }
+
+
+
+  

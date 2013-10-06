@@ -1,0 +1,141 @@
+
+
+#include"Beeper.kpp"
+class calculator:Beeper
+{ Beeper eraser(6,9,West,0);
+  
+  void clearit();
+  void multiply2();
+  void multiply3(); 
+  void add1digit(); 
+  void add2digit();};
+
+void calculator::clearit()
+{      eraser.clear();
+       eraser.turnOff();
+      
+}
+     
+void calculator::multiply2()
+{ move();
+  while (nextToABeeper())
+        { pickBeeper();
+          move();
+          put2Beeper();
+          back(); } 
+  move();
+  turn();
+  while(nextToABeeper())
+        { pickBeeper();
+          move();
+          putBeeper();
+          back();
+         }
+  move2();
+  turn(); 
+}
+void calculator::multiply3()
+{ move();
+  while (nextToABeeper())
+        { pickBeeper();
+          move();
+          put2Beeper();
+          putBeeper();
+          back(); } 
+  move();
+  turn();
+  while(nextToABeeper())
+        { pickBeeper();
+          move();
+          putBeeper();
+          back();
+          }
+  move2();
+  turn(); }
+void calculator::add1digit()
+{ move();
+  turnLeft();
+  move();
+  while(nextToABeeper())
+        { pickBeeper(); }
+  move();
+  while(nextToABeeper())
+        { pickBeeper();}
+  move3();
+  loop (10)
+        {  putBeeper(); }
+  if (anyBeepersInBeeperBag())
+      { turn();
+        move5();
+        while (anyBeepersInBeeperBag())
+               { putBeeper(); }
+        turn();
+        move5();
+        pickBeeper();
+        turnLeft();
+        move();
+        turnLeft();
+        move5();
+        putBeeper(); 
+        turnLeft();
+        move5();
+        turn();
+        
+       }
+  else { while(nextToABeeper())
+              { pickBeeper(); } 
+         turn();
+         move5();
+         while (anyBeepersInBeeperBag())
+                  { putBeeper(); }
+         turnRight();
+         move();
+         turn();
+        }
+}
+void calculator::add2digit()
+{ move2();
+  turnLeft();
+  move();
+  while(nextToABeeper())
+        { pickBeeper(); }
+  move();
+  while(nextToABeeper())
+        { pickBeeper();}
+  move3();
+  loop (10)
+        {  putBeeper(); }
+  if (anyBeepersInBeeperBag())
+      { turn();
+        move5();
+        while (anyBeepersInBeeperBag())
+               { putBeeper(); }
+        turn();
+        move5();
+        pickBeeper();
+        turnLeft();
+        move();
+        turnLeft();
+        move3();
+        putBeeper();
+        move2();
+        turnRight();
+        move();
+        turn(); 
+       }
+  else { while(nextToABeeper())
+              { pickBeeper(); } 
+         turn();
+         move5();
+         while (anyBeepersInBeeperBag())
+                  { putBeeper(); }
+         turnRight();
+         move2();
+         turn();
+        }
+  add1digit();
+
+}
+
+
+  

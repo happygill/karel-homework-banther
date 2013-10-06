@@ -1,0 +1,40 @@
+#include"New_Bot.kpp"
+class Harvester: New_Bot
+{ void diagPickUp();
+  void diagPickDown();
+  void movePick(); };
+void Harvester::diagPickUp()
+{ stepUp();
+  pickBeeper();
+}
+void Harvester::diagPickDown()
+{ stepDown();
+  pickBeeper();
+}
+void Harvester::movePick()
+{ move();
+  pickBeeper(); }
+task
+{ Harvester lex(1, 6, North, 0);
+lex.movePick();
+lex.turnRight();
+lex.diagPickUp();
+lex.diagPickUp();
+lex.diagPickUp();
+lex.turn();
+lex.diagPickUp();
+lex.diagPickUp();
+lex.diagPickUp();
+lex.diagPickDown();
+lex.diagPickDown();
+lex.diagPickDown();
+lex.turn();
+lex.diagPickDown();
+lex.diagPickDown();
+lex.diagPickUp();
+lex.diagPickUp();
+lex.turn();
+lex.diagPickUp();
+lex.diagPickDown();
+lex.turnOff();
+}

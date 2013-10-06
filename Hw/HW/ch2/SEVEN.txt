@@ -1,0 +1,23 @@
+#include "New_Bot.kpp"
+task
+{ New_Bot z(5, 7, East, 0);
+z.turn();
+z.move2();
+z.pickBeeper();
+z.move();
+z.turnRight();
+z.move();
+z.pickBeeper();
+z.turnLeft();
+z.move();
+z.turnRight();
+z.move();
+z.pickBeeper();
+z.move();
+z.pickBeeper();
+z.turn();
+z.move3();
+z.turnLeft();
+z.move4();
+z.turnOff();
+}

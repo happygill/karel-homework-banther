@@ -1,0 +1,79 @@
+#include"New_Bot.kpp"
+class Alien:New_Bot
+{ void stick();
+  void makeL();
+  void makeE();
+  void makeH();
+  void makeO(); };
+void Alien::stick()
+{ move();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); 
+  turn();
+  move4();
+  turnLeft();
+ }
+void Alien::makeL()
+{ stick();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); }
+void Alien::makeH()
+{ stick();
+  move2();
+  stick();
+  turnLeft();
+  move2();
+  turnLeft();
+  move();
+  putBeeper();
+  move();
+  putBeeper(); }
+void Alien::makeO()
+{ move();
+  makeL();
+  move2();
+  turnLeft();
+  move4();
+  turnLeft();
+  makeL(); }
+void Alien::makeE()
+{ makeL();
+  turnLeft();
+  move2();
+  putBeeper();
+  move2();
+  putBeeper();
+  turnLeft();
+  move();
+  putBeeper();
+  turnLeft();
+  move2();
+  putBeeper(); }
+task
+{ Alien H(3, 1, East, 12);
+Alien E(3, 6, East, 11);
+Alien L1(3, 10, East,7);
+Alien L2(3, 14, East,7);
+Alien O(3, 17, East, 14);
+H.makeH();
+E.makeE();
+L1.makeL();
+L2.makeL();
+O.makeO();
+H.turnOff();
+E.turnOff();
+L1.turnOff();
+L2.turnOff();
+O.turnOff();
+}
+
